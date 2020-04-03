@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COVID-19</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.topbar {
+		background-color: #30336B;
+	}
+
+	.topbar h2{
+		text-align: center;
+		color: white;
+	}
+
+	.newcountry {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		padding-left: 380px;
+	}
+
+	.card {
+	/* Add shadows to create the "card" effect */
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		transition: 0.3s;
+		margin-top: 30px;
+	}
+
+	/* On mouse-over, add a deeper shadow */
+	.card:hover {
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	}
+
+</style>
+</head>
+<body>
+	<div class="container-fluid topbar">
+		<div class="row justify-content-center">
+			<h2>COVID-19 LIVE UPDATE</h2>
+		</div>
+	</div>
+	<div class="container add-country">
+		<form class="newcountry" method="POST">
+			{% csrf_token %}
+			{{ form }}
+			<button type="submit" class="btn btn-md btn-info">Add Country</button>
+		</form>
+		{% if message %}
+			<div class="alert alert-{{ message_type }} messgae" role="alert">
+				{{ message }}
+			</div>
+		{% endif %}
+	</div>
+	<div class="container">
+		{% for country_status in current_status %}
+			<div class="card text-center shadow mt-3">
+				<div class="card-body">
+					<h4 class="card-title">{{ country_status.country }}</h4>
+					<p class="card-text">
+						<span>Total cases : {{ country_status.cases }}</span><br>
+						<span>Total deaths : {{ country_status.deaths }}</span><br>
+						<span>Total recovered : {{ country_status.recovered }}</span>
+					</p>					
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
