@@ -31,7 +31,7 @@ def index(request):
 			message = error_message
 			message_type = 'danger'
 		else :
-			message = 'City added successfully!'
+			message = 'Country added successfully!'
 			message_type = 'success'
 
 	form = CovidForm()
