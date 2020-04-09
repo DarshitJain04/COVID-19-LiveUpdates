@@ -25,7 +25,7 @@ def index(request):
 			if count == 0:
 					form.save()
 			else:
-				error_message = 'Countnry already exists in the data!'
+				error_message = 'Country already exists in the data!'
 
 		if error_message :
 			message = error_message
