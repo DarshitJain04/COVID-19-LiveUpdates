@@ -6,44 +6,43 @@
 	<title>COVID-19</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<style type="text/css">
-	.topbar {
-		background-color: #30336B;
-	}
+	<style type="text/css">
+		.topbar {
+			background-color: #30336B;
+		}
+	
+		.topbar h2{
+			text-align: center;
+			color: white;
+		}
 
-	.topbar h2{
-		text-align: center;
-		color: white;
-	}
+		.newcountry {
+			margin-top: 30px;
+			margin-bottom: 30px;
+			padding-left: 380px;
+		}
 
-	.newcountry {
-		margin-top: 30px;
-		margin-bottom: 30px;
-		padding-left: 380px;
-	}
+		.container .card {
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+			margin-top: 30px;
+		}
 
-	.card {
-	/* Add shadows to create the "card" effect */
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-		transition: 0.3s;
-		margin-top: 30px;
-	}
+		.container .card:hover{
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
 
-	/* On mouse-over, add a deeper shadow */
-	.card:hover {
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-	}
-
-</style>
+	</style>
 </head>
 <body>
 	<div class="container-fluid topbar">
 		<div class="row justify-content-center">
-			<h2>COVID-19 LIVE UPDATE</h2>
+			<h2 style="text-align: center; color:#fff;"> COVID-19 LIVE UPDATES <i class="fa fa-ambulance" style="color:#fff;"></i></h2>
 		</div>
 	</div>
 	<div class="container add-country">
@@ -60,7 +59,7 @@
 	</div>
 	<div class="container">
 		{% for country_status in current_status %}
-			<div class="card text-center shadow mt-3">
+			<div class="card text-center mt-3">
 				<div class="card-body">
 					<h4 class="card-title">{{ country_status.country }}</h4>
 					<p class="card-text">
